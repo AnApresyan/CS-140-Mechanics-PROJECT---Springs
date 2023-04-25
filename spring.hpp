@@ -15,6 +15,8 @@ class spring
         std::vector<double> move(double t, double dt, double x0);
         std::vector<double> move(double t0, double t1, double dt, double x0, double v0);
         std::vector<double> move(double t0, double t1, double dt, double x0, double v0, double m);
+        spring inSeries(const spring &other);
+        spring inParallel(const spring &other);
     private:
         void setK(double k);
 };

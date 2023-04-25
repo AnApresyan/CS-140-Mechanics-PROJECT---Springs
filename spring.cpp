@@ -54,3 +54,13 @@ std::vector<double> spring::move(double t0, double t1, double dt, double x0, dou
     return (coords);
 }
 
+spring spring::inSeries(const spring &other)
+{
+    return (spring((_k * other._k)/(_k + other._k)));
+}
+
+spring spring::inParallel(const spring &other)
+{
+    return (spring(_k + other._k));
+}
+
