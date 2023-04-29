@@ -14,12 +14,14 @@ std::vector<spring> springArray::springs(const std::string &str, std::stack<char
         if (str[i] == '[')
         {
             s.push(str[i]);
-            springs.push_back(inParallel(springArray::springs(str, s, i)));
+            springs.push_back(inParallel(springArray::springs(str, s, i + 1)));
+            continue;
         }
-        else if (str[i] == ']')
+        else if (str[i] == '{')
         {
             s.push(str[i]);
-            springs.push_back(inSeries(springArray::springs(str, s, i)));
+            springs.push_back(inSeries(springArray::springs(str, s, i + 1)));
+            continue;
         }
         else if (str[i] == ']' && s.top() == '[')
         {
@@ -32,6 +34,7 @@ std::vector<spring> springArray::springs(const std::string &str, std::stack<char
             return springs;
         }
     }
+    return springs;
 }
 
 spring springArray::inParallel(std::vector<spring> springs)

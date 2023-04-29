@@ -9,15 +9,15 @@ std::string converterFloat::system_of_springs(const std::string &bits)
     std::string decimal_part = bits.substr(0, point);
     std::string fractional_part = bits.substr(point + 1, bits.length());
 
-    return "[" + system_of_springs(decimal_part, '[', ']', 0) + system_of_springs(fractional_part, '{', '}', 1) + "]";
+    return "[" + system_of_springs(decimal_part, "[", "]", 0) + system_of_springs(fractional_part, "{", "}", 1) + "]";
 }
 
-std::string converterFloat::system_of_springs(const std::string &bits, char opening, char closing, size_t i)
+std::string converterFloat::system_of_springs(const std::string &bits, std::string opening, std::string closing, size_t i)
 {
     if (bits.length() == 0)
         return "";
-    std::string result = "" + opening;
-    std::string brackets = "" + opening + closing;
+    std::string result = opening;
+    std::string brackets = opening + closing;
 
     size_t j = bits.length() - 1;
 

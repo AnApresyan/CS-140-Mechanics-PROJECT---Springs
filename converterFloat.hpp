@@ -10,7 +10,7 @@ class converterFloat: public converter
         ~converterFloat();
         std::string system_of_springs(const std::string &bits);
         int binary_to_decimal(std::string binary);
-        std::string converterFloat::system_of_springs(const std::string &bits, char opening, char closing, size_t i);
+        std::string system_of_springs(const std::string &bits, std::string opening, std::string closing, size_t i);
 };
 
 #endif

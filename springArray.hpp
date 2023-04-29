@@ -12,8 +12,8 @@ class springArray
         static spring equivalentSpring(const std::string &springExpr);
         static spring equivalentSpring(const std::string &springExpr, spring springs[]);
         static std::vector<spring> springs(const std::string &stringExpr, std::stack<char> s, size_t i);
-        static spring springArray::inParallel(std::vector<spring> springs);
-        static spring springArray::inSeries(std::vector<spring> springs);
+        static spring inParallel(std::vector<spring> springs);
+        static spring inSeries(std::vector<spring> springs);
 };
 
 #endif
