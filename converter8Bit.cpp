@@ -1,6 +1,6 @@
 #include "converter8Bit.hpp"
 
-converter8Bit::converter8Bit(double t1, double x0, double v0, double t0, double dt,  double m, double omega): converter(t0, t1, dt, x0, v0, m, omega) {}
+converter8Bit::converter8Bit(double t1, double x0, double v0, double t0, double dt,  double m, double omega): converter(t1, x0, v0, t0, dt, m, omega) {}
 converter8Bit::~converter8Bit() {}
 
 std::string converter8Bit::system_of_springs(const std::string &bits)
@@ -24,6 +24,8 @@ std::string converter8Bit::system_of_springs(const std::string &bits)
         }
     }
     result += ']';
+
+    std::cout << "Result: " << result << std::endl;
     return result;
 }
 

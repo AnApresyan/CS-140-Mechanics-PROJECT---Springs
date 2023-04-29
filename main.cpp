@@ -35,7 +35,7 @@ int main()
 
 
     // std::cout << springArray::equivalentSpring("{{}{}[[][]]}").getK(); 
-    converter8Bit converter(100, 20, 0);
+    converter8Bit converter(10, 100, 0);
 
-    std::cout << converter.binary_to_decimal("10001");
+    std::cout << converter.binary_to_decimal("11000");
 }
