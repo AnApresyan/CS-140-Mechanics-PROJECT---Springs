@@ -34,6 +34,8 @@ int main()
     // ft::find_ampl_i(v, N, dt);
 
 
-    std::cout << springArray::equivalentSpring("{{}{}}").getK(); 
+    // std::cout << springArray::equivalentSpring("{{}{}[[][]]}").getK(); 
+    converter8Bit converter(100, 20, 0);
 
+    std::cout << converter.binary_to_decimal("10001");
 }

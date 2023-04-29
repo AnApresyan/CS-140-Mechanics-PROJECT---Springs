@@ -18,7 +18,7 @@ class converter
         double omega;
 
     public:
-        converter(double t0, double t1, double dt, double x0, double v0, double m = 1, double omega = 1);
+        converter(double t1, double x0, double v0, double t0 = 0, double dt = 1, double m = 1, double omega = 1);
         virtual ~converter();
         virtual std::string system_of_springs(const std::string &bits) = 0;
         std::vector<double> compute_oscilations(const std::string &springExpr);

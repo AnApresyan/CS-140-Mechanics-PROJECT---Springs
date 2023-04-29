@@ -1,6 +1,6 @@
 #include "converterFloat.hpp"
 
-converterFloat::converterFloat(double t0, double t1, double dt, double x0, double v0, double m, double omega): converter(t0, t1, dt, x0, v0, m, omega) {}
+converterFloat::converterFloat(double t1,  double x0, double v0, double t0, double dt, double m, double omega): converter(t0, t1, dt, x0, v0, m, omega) {}
 converterFloat::~converterFloat() {}
 
 std::string converterFloat::system_of_springs(const std::string &bits)

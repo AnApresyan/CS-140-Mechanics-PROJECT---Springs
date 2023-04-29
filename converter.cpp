@@ -1,6 +1,6 @@
 #include "converter.hpp"
 
-converter::converter(double t0, double t1, double dt, double x0, double v0, double m, double omega): t0(t0), t1(t1), dt(dt), x0(x0), v0(v0), m(m), omega(omega) {}
+converter::converter(double t1, double x0, double v0, double t0, double dt, double m, double omega): t0(t0), t1(t1), dt(dt), x0(x0), v0(v0), m(m), omega(omega) {}
 
 converter::~converter() {}
 
