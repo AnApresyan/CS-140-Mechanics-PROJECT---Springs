@@ -31,8 +31,8 @@ int ft::find_ampl_i(std::vector<double> coords, double dt, int N, double omega)
 	{
 		a.push_back(ak(coords, omega, dt, j, N));
 		b.push_back(bk(coords, omega,dt, j, N));
-		std::cout << "a-" << j << ": " << a[j] << std::endl;
-		std::cout << "b-" << j << ": " << b[j] << std::endl;
+		// std::cout << "a-" << j << ": " << a[j] << std::endl;
+		// std::cout << "b-" << j << ": " << b[j] << std::endl;
 
 		if (sqrt(pow(a[j], 2) + pow(b[j], 2)) > ampl)
 		{

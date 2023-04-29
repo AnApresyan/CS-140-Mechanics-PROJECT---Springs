@@ -29,7 +29,7 @@ std::string converter8Bit::system_of_springs(const std::string &bits)
     return result;
 }
 
-int converter8Bit::binary_to_decimal(std::string binary)
+double converter8Bit::binary_to_decimal(std::string binary)
 {
     return pow(ampl_i(compute_oscilations(system_of_springs(binary))) * omega, 2);
 }

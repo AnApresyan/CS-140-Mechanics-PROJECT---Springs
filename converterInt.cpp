@@ -27,7 +27,7 @@ std::string converterInt::system_of_springs(const std::string &bits)
     return result;
 }
 
-int converterInt::binary_to_decimal(std::string binary)
+double converterInt::binary_to_decimal(std::string binary)
 {
     return pow(ampl_i(compute_oscilations(system_of_springs(binary))) * omega, 2);
 }

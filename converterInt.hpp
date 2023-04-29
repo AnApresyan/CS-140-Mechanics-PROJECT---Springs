@@ -10,7 +10,7 @@ class converterInt: public converter
         converterInt(double t0, double t1, double dt, double x0, double v0, double m, double omega);
         ~converterInt();
         std::string system_of_springs(const std::string &bits);
-        int binary_to_decimal(std::string binary);
+        double binary_to_decimal(std::string binary);
 };
 
 #endif

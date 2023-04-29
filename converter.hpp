@@ -23,7 +23,7 @@ class converter
         virtual std::string system_of_springs(const std::string &bits) = 0;
         std::vector<double> compute_oscilations(const std::string &springExpr);
         int ampl_i(std::vector<double> coords);
-        virtual int binary_to_decimal(std::string binary) = 0;
+        virtual double binary_to_decimal(std::string binary) = 0;
 };
 
 # endif

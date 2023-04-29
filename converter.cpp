@@ -16,9 +16,9 @@ std::vector<double> converter::compute_oscilations(const std::string &springExpr
     std::cout << "v0 : " << v0 << std::endl;
     std::cout << "m : " << m << std::endl;
 
-    std::vector<double> x = s.move(t0, t1, dt, x0, v0, m);
-    for (std::vector<double>::iterator it = x.begin(); it != x.end(); it++)
-        std::cout << *it << std::endl;
+    // std::vector<double> x = s.move(t0, t1, dt, x0, v0, m);
+    // for (std::vector<double>::iterator it = x.begin(); it != x.end(); it++)
+    //     std::cout << *it << std::endl;
     return s.move(t0, t1, dt, x0, v0, m);
 }
 
