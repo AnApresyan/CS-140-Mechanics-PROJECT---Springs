@@ -2,7 +2,7 @@
 
 spring::spring(): _k(1) {}
 
-spring::spring(double k): _k(k) {}
+spring::spring(double k, double m): _k(k), _m(m) {}
 
 double spring::getK()
 {
@@ -62,5 +62,10 @@ spring spring::inSeries(const spring &other)
 spring spring::inParallel(const spring &other)
 {
     return (spring(_k + other._k));
+}
+
+double spring::getOmega()
+{
+    return sqrt(_k/_m);
 }
 

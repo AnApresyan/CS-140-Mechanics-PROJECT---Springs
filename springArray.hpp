@@ -4,12 +4,13 @@
 # include "spring.hpp"
 # include <string>
 # include <vector>
+# include <stack>
 
 class springArray
 {
     public:
         static spring equivalentSpring(const std::string &springExpr);
-        static spring equivalentSpring(const std::string &springExpr, std::vector<double> springs);
+        static spring equivalentSpring(const std::string &springExpr, spring springs[]);
 };
 
 #endif
