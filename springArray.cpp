@@ -2,11 +2,13 @@
 
 spring springArray::equivalentSpring(const std::string &springExpr) 
 {
+    size_t i = 0;
+
     std::stack<char> s;
-    return springArray::inParallel(springs(springExpr, s, 0));
+    return springArray::inParallel(springs(springExpr, s, i));
 }
 
-std::vector<spring> springArray::springs(const std::string &str, std::stack<char> s, size_t i)
+std::vector<spring> springArray::springs(const std::string &str, std::stack<char> s, size_t &i)
 {
     std::vector<spring> springs;
     for (; i < str.length(); i++)
@@ -14,13 +16,15 @@ std::vector<spring> springArray::springs(const std::string &str, std::stack<char
         if (str[i] == '[')
         {
             s.push(str[i]);
-            springs.push_back(inParallel(springArray::springs(str, s, i + 1)));
+            i++;
+            springs.push_back(inParallel(springArray::springs(str, s, i)));
             continue;
         }
         else if (str[i] == '{')
         {
             s.push(str[i]);
-            springs.push_back(inSeries(springArray::springs(str, s, i + 1)));
+            i++;
+            springs.push_back(inSeries(springArray::springs(str, s, i)));
             continue;
         }
         else if (str[i] == ']' && s.top() == '[')
