@@ -9,12 +9,12 @@ std::vector<double> converter::compute_oscilations(const std::string &springExpr
     spring s = springArray::equivalentSpring(springExpr);
     std::cout << "Stiffness: " << s.getK() << std::endl;
 
-    std::cout << "t0 : " << t0 << std::endl;
-    std::cout << "t1 : " << t1 << std::endl;
-    std::cout << "dt : " << dt << std::endl;
-    std::cout << "x0 : " << x0 << std::endl;
-    std::cout << "v0 : " << v0 << std::endl;
-    std::cout << "m : " << m << std::endl;
+    // std::cout << "t0 : " << t0 << std::endl;
+    // std::cout << "t1 : " << t1 << std::endl;
+    // std::cout << "dt : " << dt << std::endl;
+    // std::cout << "x0 : " << x0 << std::endl;
+    // std::cout << "v0 : " << v0 << std::endl;
+    // std::cout << "m : " << m << std::endl;
 
     // std::vector<double> x = s.move(t0, t1, dt, x0, v0, m);
     // for (std::vector<double>::iterator it = x.begin(); it != x.end(); it++)

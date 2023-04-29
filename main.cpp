@@ -3,6 +3,7 @@
 #include "springArray.hpp"
 #include "ft.hpp"
 #include "converter8Bit.hpp"
+#include "converterFloat.hpp"
 
 int main()
 {
@@ -35,7 +36,9 @@ int main()
 
 
     // std::cout << springArray::equivalentSpring("{{}{}[[][]]}").getK(); 
-    converter8Bit converter(500, 1000, 0);
+    converter8Bit converter(10, 10, 0);
+    std::cout << converter.binary_to_decimal("1001101");
 
-    std::cout << converter.binary_to_decimal("10001011");
+    converterFloat converterF(1000, 10000, 0);
+    std::cout << converterF.binary_to_decimal("1001.101");
 }
