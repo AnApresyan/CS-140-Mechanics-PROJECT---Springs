@@ -34,4 +34,6 @@ int main()
     // ft::find_ampl_i(v, N, dt);
 
 
+    std::cout << springArray::equivalentSpring("[][]").getK(); 
+
 }

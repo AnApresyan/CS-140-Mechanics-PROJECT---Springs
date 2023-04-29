@@ -2,58 +2,61 @@
 
 spring springArray::equivalentSpring(const std::string &springExpr) 
 {
-    std::stack<spring> stack;
-    for (int i = 0; i < springExpr.length(); i++) {
-        char c = springExpr[i];
-        if (c == '{' || c == '[')
-            stack.push(spring());
-        else if (c == '}') {
-            spring s = stack.top();
-            stack.pop();
-            if (stack.empty())
-                return s;
-            else 
-            {
-                spring &top = stack.top();
-                top = top.inSeries(s);
-            }
-        } 
-        else if (c == ']')
+    std::stack<char> s;
+    return springArray::inParallel(springs(springExpr, s, 0));
+}
+
+std::vector<spring> springArray::springs(const std::string &str, std::stack<char> s, size_t i)
+{
+    std::vector<spring> springs;
+    for (; i < str.length(); i++)
+    {
+        if (str[i] == '[')
         {
-            spring s = stack.top();
-            stack.pop();
-            if (stack.empty())
-                return s;
-            else 
-            {
-                spring &top = stack.top();
-                top = top.inParallel(s);
-            }
+            s.push(str[i]);
+            springs.push_back(inParallel(springArray::springs(str, s, i)));
+        }
+        else if (str[i] == ']')
+        {
+            s.push(str[i]);
+            springs.push_back(inSeries(springArray::springs(str, s, i)));
+        }
+        else if (str[i] == ']' && s.top() == '[')
+        {
+            s.pop();
+            return springs;
+        }
+        else if (str[i] == '}' && s.top() == '{')
+        {
+            s.pop();
+            return springs;
         }
     }
-    return spring();
+}
+
+spring springArray::inParallel(std::vector<spring> springs)
+{
+    if (springs.empty())
+        return spring();
+    double k = 0;
+
+    for (spring s: springs)
+        k += s.getK();
+    return (spring(k));
+}
+
+spring springArray::inSeries(std::vector<spring> springs)   //to be implemented later
+{
+    if (springs.empty())
+        return spring();
+    
+    double k = 0;
+    for (spring s: springs)
+        k += 1/s.getK();
+    return (spring(1/k));
 }
 
 spring springArray::equivalentSpring(const std::string &springExpr, spring springs[])
 {
-    std::stack<spring> seriesStack;
-    for (int i = 0; i < springExpr.size(); i++)
-    {
-        char c = springExpr[i];
-        if (c == '[')
-            seriesStack.push(spring());
-        else if (c == '{')
-            seriesStack.push(springs[i]);
-        else if (c == ']')
-        {
-            spring s1 = seriesStack.top();
-            seriesStack.pop();
-            spring s2 = seriesStack.top();
-            seriesStack.pop();
-            seriesStack.push(s2.inParallel(s1));
-        }
-        else if (c == '}')
-            seriesStack.top().inSeries(springs[i]);
-    }
-    return seriesStack.top();
+    return NULL;
 }
